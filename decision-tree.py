@@ -8,40 +8,40 @@
 
 		col_names = ['waiterX', 'waiterY', 'whatKeep', 'table1', 'table2', 'table3', 'table4', 'lada1', 'lada2',
                      'lada3', 'dest']
-        df = pd.read_csv("./file.csv", header=None, names=col_names)
-        x = df.drop(["dest"], axis=1)
-        y = df["dest"]
+        	df = pd.read_csv("./file.csv", header=None, names=col_names)
+       		x = df.drop(["dest"], axis=1)
+        	y = df["dest"]
 		
 		# podzial danych na dane do nauki i dane testowe
 
-        X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1)
+        	X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1)
 
 		# stworzenie drzewa decyzyjnego
 		
-        classifier = DecisionTreeClassifier(criterion="entropy")
-        classifier.fit(X_train, y_train)
-        y_pred = classifier.predict(X_test)
-        print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
-		
+		classifier = DecisionTreeClassifier(criterion="entropy")
+		classifier.fit(X_train, y_train)
+		y_pred = classifier.predict(X_test)
+		print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
+
 		# wykorzystanie drzewa do proby rozwiazania planszy bez udzialu czlowieka
 
-        self.play(classifier)
+        	self.play(classifier)
 		
 		******************************************************************************
 		#metoda odpowiedzialna za zbieranie danych do uczenia maszynowego
 		def collectData(self):
-        csvFile = open("./file.csv", "a")
-        writer = csv.writer(csvFile)
-        while True:
-            row = [self.waiter.positionX, self.waiter.positionY,
-                    self.waiter.whatKeep,
-                    self.tableList[0].showStan(), self.tableList[1].showStan(), self.tableList[2].showStan(),
-                    self.tableList[3].showStan(),
-                    self.orderTableList[0].stanLady(), self.orderTableList[1].stanLady(),
-                    self.orderTableList[2].stanLady()]
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit(0)
+		csvFile = open("./file.csv", "a")
+		writer = csv.writer(csvFile)
+		while True:
+		    row = [self.waiter.positionX, self.waiter.positionY,
+			    self.waiter.whatKeep,
+			    self.tableList[0].showStan(), self.tableList[1].showStan(), self.tableList[2].showStan(),
+			    self.tableList[3].showStan(),
+			    self.orderTableList[0].stanLady(), self.orderTableList[1].stanLady(),
+			    self.orderTableList[2].stanLady()]
+		    for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+			    sys.exit(0)
 					
             #czekanie na numerki z klawiatury i odnajdywanie bfs do danego obiektu
             keys = pygame.key.get_pressed()
@@ -84,10 +84,10 @@
             self.waiter.move(self)
             self.fpsClock.tick(10)
 
-        csvFile.close()
+        	csvFile.close()
 		
 	# metoda odpowiedzialna za probe rozwiazania planszy za pomoca sztucznej inteligencji
-	 def play(self, classifier):
+	def play(self, classifier):
         success = 0
         while success < 7:
             for event in pygame.event.get():
