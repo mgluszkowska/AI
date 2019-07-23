@@ -1,12 +1,7 @@
-# Projekt na studia z przedmiotu Sztuczna Inteligencja 
+# Artificial Intelligence - University project
 
 
-###### Czego używałam: Python, Pygame, Scikit-learn
+###### What I used: Python, Pygame, Scikit-learn
+ 
 
-
-Moja część grupowego projektu ze sztucznej inteligencji. Projekt polegał na stworzeniu wirtualnej restauracji w Pygame i kelnera, który 
-obsługuje stoliki. Początkowo kelnerem sterowało się ręcznie za pomocą klawiatury, potem trzeba było za pomocą sztucznej inteligencji
-nauczyć kelnera, żeby pracował samodzielnie. Moja część polegała na wykorzystaniu drzewa decyzyjnego do nauki kelnera. Stworzyłam metodę, 
-która zapisywała dane na temat planszy oraz kroki, jakie kazałam wykonać kelnerowi. Później za pomocą biblioteki Scikit-learn stworzyłam
-drzewo decyzyjne i wykorzystałam do niego zebrane wcześniej dane. Na końcu sprawdzałam skuteczność drzewa każąc kelnerowi rozwiązać 
-planszę samodzielnie. 
+My part of a group AI project. We had to create a virtual restaurant in Pygame and a waiter who had to wait the tables. In the beginning the waiter was moved manually with keyboard, later we had to use AI to teach him how to work independently. My part consisted of using a decision tree for learning. I created a method that gathered data from the environment and recorded the steps that I told the waiter to take. Then I created a decision tree with Scikit-learn, using the data that I had collected. Finally I tested the tree by forcing the waiter to wait the tables independently.
